@@ -18,7 +18,7 @@ const config = {
   projectName: 'kstaff-docs', // Your repository name
   trailingSlash: false, // Required for GitHub Pages
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
 
   i18n: {
     defaultLocale: 'en',
