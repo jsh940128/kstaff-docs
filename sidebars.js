@@ -17,7 +17,9 @@
 const sidebars = {
   // By default, Docusaurus generates a sidebar from the docs folder structure
   tutorialSidebar: [
-    'overseas-partner', // Add this
+    'overseas-partner', 
+    'employer',      
+    'korea-partner', 
   ],
 
   // But you can create a sidebar manually
