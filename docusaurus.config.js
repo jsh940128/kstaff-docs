@@ -12,8 +12,8 @@ const config = {
   },
 
   // --- GITHUB PAGES CONFIGURATION ---
-  url: 'https://jsh940128.github.io',
-  baseUrl: '/kstaff-docs/',
+  url: 'https://docs.kstaff.co.kr',
+  baseUrl: '/',
   organizationName: 'jsh940128', // Your GitHub username
   projectName: 'kstaff-docs', // Your repository name
   trailingSlash: false, // Required for GitHub Pages
