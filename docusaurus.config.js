@@ -71,15 +71,6 @@ const config = {
             position: 'left',
             label: 'Documentation',
           },
-          {
-            href: 'https://github.com/jsh940128/kstaff-docs',
-            label: 'GitHub',
-            position: 'right',
-          },
-          {
-            type: 'localeDropdown',
-            position: 'right',
-          },
         ],
       },
       footer: {
