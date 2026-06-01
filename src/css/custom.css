@@ -1,164 +1,309 @@
-/* Custom CSS for Modern Landing Page & Language Switcher */
+/**
+ * K-Staff documentation site styles.
+ *
+ * Strategy: set Docusaurus's --ifm-* variables to the K-Staff brand palette so
+ * navbar, links, headings, sidebars, and code blocks are all on-brand by default.
+ * Homepage-specific classes are prefixed `ks-` and live below the variables.
+ */
+
+/* ============================================================
+   BRAND TOKENS (override Docusaurus defaults)
+   ============================================================ */
+
 :root {
-  --ks-primary: #1e3a8a; /* Deep Navy */
-  --ks-accent: #3b82f6;  /* Bright Blue */
-  --ks-bg-dark: #0f172a;
-  --ks-card-bg: #1e293b;
-  --ks-text-light: #f8fafc;
-  --ks-text-muted: #94a3b8;
+  /* K-Staff brand: deep navy primary, bright blue accent */
+  --ifm-color-primary: #1e3a8a;
+  --ifm-color-primary-dark: #1b3479;
+  --ifm-color-primary-darker: #1a3173;
+  --ifm-color-primary-darkest: #15295e;
+  --ifm-color-primary-light: #21409b;
+  --ifm-color-primary-lighter: #2243a1;
+  --ifm-color-primary-lightest: #284cb2;
+
+  --ifm-link-color: #2563eb;
+  --ifm-link-hover-color: #1e40af;
+
+  --ifm-font-family-base:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Roboto",
+    "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --ifm-heading-font-family: var(--ifm-font-family-base);
+  --ifm-heading-font-weight: 700;
+
+  --ifm-h1-font-size: 2.25rem;
+  --ifm-code-font-size: 90%;
+  --docusaurus-highlighted-code-line-bg: rgba(59, 130, 246, 0.10);
 }
 
-/* 1. Global Floating Language Switcher */
-.floating-lang-switcher {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 9999;
-  background: rgba(30, 58, 138, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: #fff !important;
-  padding: 12px 20px;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  text-decoration: none !important;
+[data-theme='dark'] {
+  --ifm-color-primary: #60a5fa;
+  --ifm-color-primary-dark: #3b82f6;
+  --ifm-color-primary-darker: #2563eb;
+  --ifm-color-primary-darkest: #1e40af;
+  --ifm-color-primary-light: #93c5fd;
+  --ifm-color-primary-lighter: #bfdbfe;
+  --ifm-color-primary-lightest: #dbeafe;
+
+  --ifm-link-color: #60a5fa;
+  --ifm-link-hover-color: #93c5fd;
+
+  --docusaurus-highlighted-code-line-bg: rgba(96, 165, 250, 0.20);
 }
 
-.floating-lang-switcher:hover {
-  transform: translateY(-3px);
-  background: rgba(59, 130, 246, 0.95);
-  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.3);
+/* ============================================================
+   DOC PAGE POLISH
+   ============================================================ */
+
+.markdown h1 + header,
+.markdown h2 { margin-top: 2.25rem; }
+
+.markdown img {
+  border-radius: 10px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
 }
 
-/* Hide the default navbar locale dropdown to avoid redundancy */
-.navbar__item.dropdown {
-  display: none !important;
+/* Tighter blockquotes */
+.markdown blockquote {
+  border-left: 3px solid var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-100);
+  padding: 0.75rem 1rem;
+  border-radius: 0 8px 8px 0;
 }
 
-/* 2. Modern Hero Section */
-.modern-homepage {
-  background-color: var(--ks-bg-dark);
-  color: var(--ks-text-light);
-  min-height: calc(100vh - 60px);
-}
+/* ============================================================
+   HOMEPAGE (all custom classes are prefixed `ks-`)
+   ============================================================ */
 
-.hero-section {
-  padding: 6rem 2rem;
+.ks-home { /* container */ }
+
+/* ---- Hero ---- */
+.ks-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 1.5rem 4rem;
   text-align: center;
-  background: radial-gradient(circle at top, #1e293b 0%, var(--ks-bg-dark) 100%);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+[data-theme='dark'] .ks-hero {
+  background: linear-gradient(180deg, #0b1220 0%, #0f172a 100%);
+  border-bottom-color: rgba(255,255,255,0.05);
 }
 
-.hero-title {
-  font-size: 4rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+.ks-hero-eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  background: rgba(30, 58, 138, 0.08);
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
   margin-bottom: 1.5rem;
 }
-
-.hero-title .highlight {
-  background: linear-gradient(135deg, #60a5fa, #3b82f6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+[data-theme='dark'] .ks-hero-eyebrow {
+  background: rgba(96, 165, 250, 0.15);
+  color: #93c5fd;
 }
 
-.hero-subtitle {
-  font-size: 1.25rem;
-  color: var(--ks-text-muted);
-  max-width: 600px;
-  margin: 0 auto 3rem auto;
+.ks-hero-title {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0 0 1.25rem;
+}
+
+.ks-hero-subtitle {
+  font-size: 1.15rem;
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  color: var(--ifm-color-content-secondary);
   line-height: 1.6;
 }
 
-/* Buttons */
-.hero-buttons {
+.ks-hero-cta-row {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
 }
 
-.btn {
-  padding: 14px 28px;
+/* ---- Buttons ---- */
+.ks-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.4rem;
   border-radius: 8px;
   font-weight: 600;
-  text-decoration: none !important;
-  transition: all 0.2s ease;
-}
-
-.btn-primary {
-  background-color: var(--ks-accent);
-  color: #fff;
-  border: 1px solid transparent;
-}
-
-.btn-primary:hover {
-  background-color: #2563eb;
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
-}
-
-.btn-secondary {
-  background-color: transparent;
-  color: var(--ks-text-light);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-/* 3. Features Grid */
-.features-section {
-  padding: 5rem 2rem;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.feature-card {
-  background: var(--ks-card-bg);
-  padding: 2rem;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.feature-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(59, 130, 246, 0.5);
-  background: linear-gradient(180deg, var(--ks-card-bg) 0%, #1e293b 100%);
-}
-
-.feature-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.feature-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  color: var(--ks-text-light);
-}
-
-.feature-desc {
-  color: var(--ks-text-muted);
-  line-height: 1.6;
   font-size: 0.95rem;
+  text-decoration: none !important;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+  white-space: nowrap;
+}
+.ks-btn-primary {
+  background: var(--ifm-color-primary);
+  color: #fff;
+  border: 1px solid var(--ifm-color-primary);
+}
+.ks-btn-primary:hover {
+  background: var(--ifm-color-primary-dark);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px -10px rgba(30, 58, 138, 0.5);
+}
+.ks-btn-secondary {
+  background: transparent;
+  color: var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+.ks-btn-secondary:hover {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-emphasis-400);
+}
+[data-theme='dark'] .ks-btn-secondary {
+  color: var(--ifm-color-primary-light);
+  border-color: rgba(255,255,255,0.18);
+}
+[data-theme='dark'] .ks-btn-secondary:hover {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.3);
+  color: var(--ifm-color-primary-lighter);
+}
+
+/* ---- Sections ---- */
+.ks-section { padding: 4rem 1.5rem; }
+.ks-section-narrow { max-width: 1080px; margin: 0 auto; }
+
+.ks-section-heading {
+  text-align: center;
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5rem;
+}
+.ks-section-subheading {
+  text-align: center;
+  color: var(--ifm-color-content-secondary);
+  margin: 0 0 2.5rem;
+  font-size: 1rem;
+}
+
+/* ---- Role grid ---- */
+.ks-role-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+.ks-role-card {
+  display: block;
+  text-decoration: none !important;
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 14px;
+  padding: 1.5rem;
+  color: inherit;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+.ks-role-card:hover {
+  text-decoration: none !important;
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -16px rgba(30, 58, 138, 0.25);
+}
+.ks-role-card-icon {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(30, 58, 138, 0.08);
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.85rem;
+  font-size: 1.15rem;
+}
+[data-theme='dark'] .ks-role-card-icon {
+  background: rgba(96, 165, 250, 0.15);
+}
+.ks-role-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+  color: var(--ifm-heading-color);
+}
+.ks-role-card-desc {
+  font-size: 0.93rem;
+  line-height: 1.55;
+  color: var(--ifm-color-content-secondary);
+  margin: 0 0 1rem;
+}
+.ks-role-card-arrow {
+  font-size: 0.9rem;
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+/* ---- How-it-works teaser ---- */
+.ks-how-card {
+  background: linear-gradient(135deg, rgba(30,58,138,0.05) 0%, rgba(59,130,246,0.05) 100%);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+[data-theme='dark'] .ks-how-card {
+  background: linear-gradient(135deg, rgba(96,165,250,0.07) 0%, rgba(59,130,246,0.06) 100%);
+}
+.ks-how-text { flex: 1 1 320px; min-width: 0; }
+.ks-how-title { font-size: 1.35rem; font-weight: 700; margin: 0 0 0.4rem; }
+.ks-how-desc { color: var(--ifm-color-content-secondary); margin: 0; line-height: 1.55; }
+
+/* ---- "Why" features ---- */
+.ks-features-section { background: #f8fafc; }
+[data-theme='dark'] .ks-features-section { background: #0b1220; }
+
+.ks-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+.ks-feature-card {
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 14px;
+  padding: 1.5rem;
+}
+.ks-feature-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+.ks-feature-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+  color: var(--ifm-heading-color);
+}
+.ks-feature-desc {
+  color: var(--ifm-color-content-secondary);
+  font-size: 0.93rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Small-screen polish */
+@media (max-width: 640px) {
+  .ks-hero { padding: 3.5rem 1rem 2.5rem; }
+  .ks-section { padding: 2.5rem 1rem; }
+  .ks-how-card { padding: 1.5rem; }
 }

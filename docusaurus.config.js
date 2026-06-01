@@ -4,34 +4,27 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'K-Staff Documentation',
-  tagline: 'Privacy-first, operator-governed cross-border recruitment',
+  tagline: 'Privacy-first cross-border recruitment for Korean visa hiring',
   favicon: 'img/favicon.ico',
 
-  future: {
-    v4: true,
-  },
+  future: {v4: true},
 
-  // --- GITHUB PAGES CONFIGURATION ---
+  // GitHub Pages on docs.kstaff.co.kr
   url: 'https://docs.kstaff.co.kr',
   baseUrl: '/',
-  organizationName: 'jsh940128', // Your GitHub username
-  projectName: 'kstaff-docs', // Your repository name
-  trailingSlash: false, // Required for GitHub Pages
+  organizationName: 'jsh940128',
+  projectName: 'kstaff-docs',
+  trailingSlash: false,
 
   onBrokenLinks: 'warn',
+  onBrokenAnchors: 'warn',
 
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'ko'],
     localeConfigs: {
-      en: {
-        label: 'English',
-        direction: 'ltr',
-      },
-      ko: {
-        label: '한국어',
-        direction: 'ltr',
-      },
+      en: {label: 'English', direction: 'ltr', htmlLang: 'en-US'},
+      ko: {label: '한국어', direction: 'ltr', htmlLang: 'ko-KR'},
     },
   },
 
@@ -42,12 +35,10 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // Removed the 'editUrl' so the public can't suggest edits to your docs
+          // editUrl intentionally omitted so the public can't suggest edits.
         },
-        blog: false, // Disabled the default blog for now to keep it clean
-        theme: {
-          customCss: './src/css/custom.css',
-        },
+        blog: false,
+        theme: {customCss: './src/css/custom.css'},
       }),
     ],
   ],
@@ -55,38 +46,50 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      colorMode: {
-        respectPrefersColorScheme: true,
-      },
+      colorMode: {respectPrefersColorScheme: true},
       navbar: {
         title: 'K-Staff',
-        logo: {
-          alt: 'K-Staff Logo',
-          src: 'img/logo.svg', // You can replace this with your own logo later
-        },
+        logo: {alt: 'K-Staff', src: 'img/logo.svg'},
         items: [
+          {to: '/docs/intro', label: 'Introduction', position: 'left'},
+          {to: '/docs/how-it-works', label: 'How it works', position: 'left'},
           {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Documentation',
+            label: 'Role guides',
           },
+          {type: 'localeDropdown', position: 'right'},
         ],
       },
       footer: {
         style: 'dark',
         links: [
           {
-            title: 'Resources',
+            title: 'Documentation',
             items: [
-              {
-                label: 'Documentation',
-                to: '/docs/overseas-partner',
-              },
+              {label: 'Introduction', to: '/docs/intro'},
+              {label: 'How it works', to: '/docs/how-it-works'},
+            ],
+          },
+          {
+            title: 'Role guides',
+            items: [
+              {label: 'Overseas Partner', to: '/docs/overseas-partner'},
+              {label: 'Korea Partner', to: '/docs/korea-partner'},
+              {label: 'Employer', to: '/docs/employer'},
+              {label: 'Platform Manager', to: '/docs/platform-manager'},
+            ],
+          },
+          {
+            title: 'K-Staff',
+            items: [
+              {label: 'kstaff.co.kr', href: 'https://kstaff.co.kr'},
+              {label: 'Terms & Privacy', href: 'https://kstaff.co.kr/legal'},
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} K-Staff.`,
+        copyright: `© ${new Date().getFullYear()} 한국부동산서비스 주식회사 (Korea Real Estate Service Co., Ltd.). All rights reserved.`,
       },
       prism: {
         theme: prismThemes.github,

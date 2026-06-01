@@ -1,39 +1,30 @@
 // @ts-check
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-
 /**
- * Creating a sidebar enables you to:
- - create an ordered group of docs
- - render a sidebar for each doc of that group
- - provide next/previous navigation
-
- The sidebars can be generated from the filesystem, or explicitly defined here.
-
- Create as many sidebars as you want.
-
- @type {import('@docusaurus/plugin-content-docs').SidebarsConfig}
+ * Sidebar for the K-Staff documentation.
+ *
+ * - intro              -- what K-Staff is, the four roles, the three data tiers
+ * - how-it-works       -- the full lifecycle in one page, role hand-offs mapped
+ * - Role guides        -- the partner-facing operational guide per role
+ *
+ * @type {import('@docusaurus/plugin-content-docs').SidebarsConfig}
  */
 const sidebars = {
-  // By default, Docusaurus generates a sidebar from the docs folder structure
-  tutorialSidebar: [
-    'overseas-partner', 
-    'employer',      
-    'korea-partner', 
-  ],
-
-  // But you can create a sidebar manually
-  /*
   tutorialSidebar: [
     'intro',
-    'hello',
+    'how-it-works',
     {
       type: 'category',
-      label: 'Tutorial',
-      items: ['tutorial-basics/create-a-document'],
+      label: 'Role guides',
+      collapsed: false,
+      items: [
+        'overseas-partner',
+        'korea-partner',
+        'employer',
+        'platform-manager',
+      ],
     },
   ],
-   */
 };
 
 export default sidebars;
