@@ -13,37 +13,38 @@ sidebar_position: 1
 ## 인계 흐름도
 
 ```
-OVERSEAS PARTNER      PLATFORM MANAGER         EMPLOYER                 KOREA PARTNER
------------------     ----------------         --------                 -------------
-create candidate
-  (Tier-1/2/3) .....> supply is now visible
-upload documents
+해외 파트너            플랫폼 관리자            고용주                       한국 파트너
+---------            ----------            ------                       ---------
+후보자 등록
+  (Tier-1/2/3) ...> 공급 가시화
+서류 업로드
 
-                      publish MSA agreement
-                      provision employer .....> account created
-                                                sign MSA
-                      raise trust level <...... compliance dashboard
-                                                request resume access
-                      grant Tier-2 access ....> view Tier-2 resume
-                                                create demand request
-                      triage: reviewing
-                      route to Korea Partner ........................................> demand list received
-                                                                                       accept the list
-                                                                                       review Tier-1 only
-                                                                                       (resume/docs locked)
-                                                                                       decline unfit
-                                                                                       request interview
-                      approve interview <........................................... (waits)
-                                                                                       LOCK candidate
-                                                                                       (agree fee; Tier-2 +
-                                                                                        Tier-3 now unlocked)
-                                                                                       report placement
-                      propose fee ...............................................> acknowledge fee
-                      confirm placement
-                      generate contract draft
-                      finalize contract ........> employer sees finalized
-candidate shows
- "Placed" (sanitized) E-7-4 scoring + deadlines <................................. feed E-7-4 profile data
+                    MSA 계약 게시
+                    고용주 계정 생성 .....> 계정 생성됨
+                                           MSA 서명
+                    신뢰 등급 상향 <........ 컴플라이언스 대시보드
+                                           이력서 접근 요청
+                    Tier-2 권한 부여 .....> Tier-2 이력서 조회
+                                           수요 요청 등록
+                    상태: 검토 중
+                    한국 파트너로 라우팅 ...........................................> 수요 리스트 수신
+                                                                                     리스트 수락
+                                                                                     Tier-1만 조회
+                                                                                     (이력서/문서 잠금)
+                                                                                     부적합 거절
+                                                                                     면접 요청
+                    면접 승인 <................................................... (대기 중)
+                                                                                     후보자 잠금
+                                                                                     (수수료 동의;
+                                                                                      Tier-2 + Tier-3
+                                                                                      열림)
+                                                                                     채용 체결 보고
+                    수수료 제안 ...............................................> 수수료 확인
+                    채용 확정
+                    계약서 초안 생성
+                    계약서 최종 확정 ......> 고용주 최종본 조회
+후보자
+"체결 완료" 표시     E-7-4 점수 + 마감 <................................... E-7-4 프로필 입력
 ```
 
 채용 확정 이후에도 관계는 지속됩니다. E-7-4 비자 업그레이드 점수 산정, 컴플라이언스 마감 알림(D-7 / D-1), 30일 · 1년 · 3년 마일스톤 알림, 계약 만료 시점의 재고용 가능자 추적이 자동으로 이루어집니다.
