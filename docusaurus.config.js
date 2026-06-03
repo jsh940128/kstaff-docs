@@ -70,7 +70,8 @@ const config = {
       colorMode: {respectPrefersColorScheme: true},
       navbar: {
         title: 'K-Staff',
-        logo: {alt: 'K-Staff', src: 'img/logo.svg'},
+        // No logo image: the wordmark stands on its own. Tab favicon (config.favicon)
+        // and the OG card (themeConfig.image) are still served from the K monogram.
         items: [
           {to: '/docs/intro', label: 'Introduction', position: 'left'},
           {to: '/docs/how-it-works', label: 'How it works', position: 'left'},
