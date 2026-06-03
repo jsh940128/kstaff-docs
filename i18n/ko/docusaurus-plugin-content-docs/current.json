@@ -1,0 +1,10 @@
+{
+  "version.label": {
+    "message": "현재",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Role guides": {
+    "message": "역할별 가이드",
+    "description": "The label for category Role guides in sidebar tutorialSidebar"
+  }
+}

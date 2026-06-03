@@ -1,0 +1,54 @@
+{
+  "link.title.Documentation": {
+    "message": "문서",
+    "description": "The title of the footer links column with title=Documentation"
+  },
+  "link.title.Role guides": {
+    "message": "역할별 가이드",
+    "description": "The title of the footer links column with title=Role guides"
+  },
+  "link.title.K-Staff": {
+    "message": "K-Staff",
+    "description": "The title of the footer links column with title=K-Staff"
+  },
+  "link.item.label.Introduction": {
+    "message": "소개",
+    "description": "The label of footer link with label=Introduction"
+  },
+  "link.item.label.How it works": {
+    "message": "작동 방식",
+    "description": "The label of footer link with label=How it works"
+  },
+  "link.item.label.Overseas Partner": {
+    "message": "해외 파트너",
+    "description": "The label of footer link with label=Overseas Partner"
+  },
+  "link.item.label.Korea Partner": {
+    "message": "한국 파트너",
+    "description": "The label of footer link with label=Korea Partner"
+  },
+  "link.item.label.Employer": {
+    "message": "고용주",
+    "description": "The label of footer link with label=Employer"
+  },
+  "link.item.label.Platform Manager": {
+    "message": "플랫폼 관리자",
+    "description": "The label of footer link with label=Platform Manager"
+  },
+  "link.item.label.kstaff.co.kr": {
+    "message": "kstaff.co.kr",
+    "description": "The label of footer link with label=kstaff.co.kr"
+  },
+  "link.item.label.Terms": {
+    "message": "이용약관",
+    "description": "The label of footer link with label=Terms"
+  },
+  "link.item.label.Privacy": {
+    "message": "개인정보처리방침",
+    "description": "The label of footer link with label=Privacy"
+  },
+  "copyright": {
+    "message": "© 2026 한국부동산서비스 주식회사 (Korea Real Estate Service Co., Ltd.). 무단 전재 및 복제 금지.",
+    "description": "The footer copyright"
+  }
+}

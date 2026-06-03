@@ -1,0 +1,22 @@
+{
+  "logo.alt": {
+    "message": "K-Staff",
+    "description": "The alt text of navbar logo"
+  },
+  "title": {
+    "message": "K-Staff",
+    "description": "The title in the navbar"
+  },
+  "item.label.Introduction": {
+    "message": "소개",
+    "description": "Navbar item with label Introduction"
+  },
+  "item.label.How it works": {
+    "message": "작동 방식",
+    "description": "Navbar item with label How it works"
+  },
+  "item.label.Role guides": {
+    "message": "역할별 가이드",
+    "description": "Navbar item with label Role guides"
+  }
+}

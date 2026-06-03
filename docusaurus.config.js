@@ -5,7 +5,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'K-Staff Documentation',
   tagline: 'Privacy-first cross-border recruitment for Korean visa hiring',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
 
   future: {v4: true},
 
@@ -19,14 +19,33 @@ const config = {
   onBrokenLinks: 'warn',
   onBrokenAnchors: 'warn',
 
+  // Korean is the primary audience for this product, so Korean is the default
+  // locale and serves at `/`. The English variant lives under `/en/`.
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'ko'],
+    defaultLocale: 'ko',
+    locales: ['ko', 'en'],
     localeConfigs: {
-      en: {label: 'English', direction: 'ltr', htmlLang: 'en-US'},
       ko: {label: '한국어', direction: 'ltr', htmlLang: 'ko-KR'},
+      en: {label: 'English', direction: 'ltr', htmlLang: 'en-US'},
     },
   },
+
+  // Extra <head> tags for favicons of every common size + apple-touch-icon.
+  // The primary favicon (config.favicon, above) is the SVG; these are fallbacks.
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {rel: 'icon', type: 'image/png', sizes: '32x32', href: '/img/favicon-32x32.png'},
+    },
+    {
+      tagName: 'link',
+      attributes: {rel: 'icon', type: 'image/png', sizes: '16x16', href: '/img/favicon-16x16.png'},
+    },
+    {
+      tagName: 'link',
+      attributes: {rel: 'apple-touch-icon', sizes: '180x180', href: '/img/apple-touch-icon.png'},
+    },
+  ],
 
   presets: [
     [
@@ -46,6 +65,8 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      // og:image / twitter:image used on link previews.
+      image: 'img/og-image.png',
       colorMode: {respectPrefersColorScheme: true},
       navbar: {
         title: 'K-Staff',
@@ -85,7 +106,8 @@ const config = {
             title: 'K-Staff',
             items: [
               {label: 'kstaff.co.kr', href: 'https://kstaff.co.kr'},
-              {label: 'Terms & Privacy', href: 'https://kstaff.co.kr/legal'},
+              {label: 'Terms', href: 'https://kstaff.co.kr/terms'},
+              {label: 'Privacy', href: 'https://kstaff.co.kr/privacy'},
             ],
           },
         ],
